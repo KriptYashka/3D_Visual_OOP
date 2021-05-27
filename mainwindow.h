@@ -24,7 +24,7 @@ public:
 
 private slots:
     void loadFile();
-    void spinModel();
+    void rotateModel();
     void movingModel();
     void modelToScale();
     void allButtonActivate();

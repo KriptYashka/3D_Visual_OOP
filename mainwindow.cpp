@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), _fasad(parent), ui
     connect(ui->btnLoadFile,SIGNAL(clicked()),this,SLOT(loadFile()));
     connect(ui->btnMoveModel,SIGNAL(clicked()),this,SLOT(movingModel()));  // Передвижение
     connect(ui->btnScale,SIGNAL(clicked()),this,SLOT(modelToScale()));  // Масштабирование
-    connect(ui->btnRotateModel,SIGNAL(clicked()),this,SLOT(spinModel()));  // Поворот
+    connect(ui->btnRotateModel,SIGNAL(clicked()),this,SLOT(rotateModel()));  // Поворот
 }
 
 MainWindow::~MainWindow(){
@@ -32,7 +32,7 @@ void MainWindow::allButtonActivate(){
     ui->btnRotateModel->setEnabled(true);
 }
 
-void MainWindow::spinModel(){
+void MainWindow::rotateModel(){
     _fasad.rotateScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
     ui->graphicsView->drawScene(_fasad._scene);
 }
