@@ -29,8 +29,7 @@ TransformMatrix TransformMatrixBuilder::createRotationMatrix(float x, float y, f
     return  _trasfomrMatrixRotX * _trasfomrMatrixRotY * _trasfomrMatrixRotZ;
 }
 
-TransformMatrix TransformMatrixBuilder::createMoveMatrix(float x, float y, float z)
-{
+TransformMatrix TransformMatrixBuilder::createMoveMatrix(float x, float y, float z){
     float transfomrMatrixMove[4][4] = { {1,0,0,0},
                                         {0,1,0,0},
                                         {0,0,1,0},
@@ -40,8 +39,7 @@ TransformMatrix TransformMatrixBuilder::createMoveMatrix(float x, float y, float
     return _transfomrMatrixMove;
 }
 
-TransformMatrix TransformMatrixBuilder::createScaleMatrix(float x, float y, float z)
-{
+TransformMatrix TransformMatrixBuilder::createScaleMatrix(float x, float y, float z){
     float transfomrMatrixScale[4][4] = { {x,0,0,0},
                                          {0,y,0,0},
                                          {0,0,z,0},

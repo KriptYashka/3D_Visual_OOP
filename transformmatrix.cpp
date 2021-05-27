@@ -1,14 +1,14 @@
 #include "transformmatrix.h"
 
 TransformMatrix::TransformMatrix(float matr[MATRIX_ROW][MATRIX_COL]){
-    for(int i =0 ; i < MATRIX_ROW; i++)
-        for(int j =0 ; j < MATRIX_COL; j++)
+    for(int i = 0 ; i < MATRIX_ROW; ++i)
+        for(int j =0 ; j < MATRIX_COL; ++j)
             _matr[i][j] = matr[i][j];
 }
 
 TransformMatrix::TransformMatrix(){
-    for(int i =0 ; i < MATRIX_ROW; i++)
-        for(int j =0 ; j < MATRIX_COL; j++)
+    for(int i = 0; i < MATRIX_ROW; ++i)
+        for(int j = 0; j < MATRIX_COL; ++j)
             _matr[i][j] = 0;
 }
 
