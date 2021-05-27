@@ -2,8 +2,7 @@
 #define SCENEOBJECT_H
 #include "transformmatrix.h"
 
-class SceneObject
-{
+class SceneObject{
 public:
     SceneObject();
     virtual void transform(TransformMatrix _traseformMatrix);

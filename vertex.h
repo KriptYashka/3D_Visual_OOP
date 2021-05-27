@@ -5,8 +5,7 @@
 #include "point.h"
 #include "sceneobject.h"
 
-class Vertex : public SceneObject
-{
+class Vertex : public SceneObject{
 private:
     Point _position;
 public:

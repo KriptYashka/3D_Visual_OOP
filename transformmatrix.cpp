@@ -1,21 +1,18 @@
 #include "transformmatrix.h"
 
-TransformMatrix::TransformMatrix(float matr[MATRIX_ROW][MATRIX_COL])
-{
+TransformMatrix::TransformMatrix(float matr[MATRIX_ROW][MATRIX_COL]){
     for(int i =0 ; i < MATRIX_ROW; i++)
         for(int j =0 ; j < MATRIX_COL; j++)
             _matr[i][j] = matr[i][j];
 }
 
-TransformMatrix::TransformMatrix()
-{
+TransformMatrix::TransformMatrix(){
     for(int i =0 ; i < MATRIX_ROW; i++)
         for(int j =0 ; j < MATRIX_COL; j++)
             _matr[i][j] = 0;
 }
 
-TransformMatrix TransformMatrix::operator*(TransformMatrix _transformMatrix)
-{
+TransformMatrix TransformMatrix::operator*(TransformMatrix _transformMatrix){
     TransformMatrix resMatr;
 
     for (int i = 0; i < MATRIX_ROW; i++)
@@ -26,8 +23,7 @@ TransformMatrix TransformMatrix::operator*(TransformMatrix _transformMatrix)
     return resMatr;
 }
 
-Point TransformMatrix::TransformPoint(Point point)
-{
+Point TransformMatrix::TransformPoint(Point point){
     Point newPoint;
 
     newPoint.x = point.x * _matr[0][0] + point.y * _matr[0][1] + point.z * _matr[0][2] + _matr[3][0];

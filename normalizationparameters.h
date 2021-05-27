@@ -2,8 +2,7 @@
 #define NORMALIZATIONPARAMETERS_H
 
 
-class NormalizationParameters
-{
+class NormalizationParameters{
 public:
     NormalizationParameters();
     NormalizationParameters(float _min, float _max, float _dxStep, float _dyStep);

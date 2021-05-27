@@ -11,8 +11,7 @@
 #define MIN_X 0
 #define MIN_Y 0
 
-class FileReader : public BaseFileReader
-{
+class FileReader : public BaseFileReader{
 public:
     FileReader();
 

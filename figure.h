@@ -8,8 +8,7 @@
 #include "vertex.h"
 using std::vector;
 
-class Figure : public SceneObject
-{
+class Figure : public SceneObject{
 private:
     vector<Vertex> _vertices;
     vector<Edge> _edges;

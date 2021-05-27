@@ -3,8 +3,7 @@
 #include "transformmatrix.h"
 #include <cmath>
 
-class TransformMatrixBuilder
-{
+class TransformMatrixBuilder{
 public:
     TransformMatrixBuilder();
     static TransformMatrix createRotationMatrix(float x,float y, float z);

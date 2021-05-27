@@ -1,11 +1,5 @@
 #include "scenedrawerbase.h"
 
-SceneDrawerBase::SceneDrawerBase()
-{
+SceneDrawerBase::SceneDrawerBase(){}
 
-}
-
-void SceneDrawerBase::drawScene(Scene _scene)
-{
-
-}
+void SceneDrawerBase::drawScene(Scene _scene){}

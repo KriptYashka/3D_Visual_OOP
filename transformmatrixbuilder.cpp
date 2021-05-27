@@ -1,12 +1,8 @@
 #include "transformmatrixbuilder.h"
 
-TransformMatrixBuilder::TransformMatrixBuilder()
-{
+TransformMatrixBuilder::TransformMatrixBuilder(){}
 
-}
-
-TransformMatrix TransformMatrixBuilder::createRotationMatrix(float x, float y, float z)
-{
+TransformMatrix TransformMatrixBuilder::createRotationMatrix(float x, float y, float z){
     float _x = x*M_PI/180.0;
     float _y = y*M_PI/180.0;
     float _z = z*M_PI/180.0;

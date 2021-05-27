@@ -2,8 +2,7 @@
 #define POINT_H
 
 
-class Point
-{
+class Point{
 public:
     Point();
     float x;

@@ -3,8 +3,7 @@
 #include <iostream>
 using std::string;
 
-class FacadeOperationResult
-{
+class FacadeOperationResult{
 private:
     string _errorMessage;
     bool _isSuccess;

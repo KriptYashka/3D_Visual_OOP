@@ -3,8 +3,7 @@
 #include "vertex.h"
 #include <iostream>
 
-class Edge
-{
+class Edge{
 private:
     //Vertex &_begin;
     //Vertex &_end;

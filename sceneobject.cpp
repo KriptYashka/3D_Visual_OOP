@@ -1,11 +1,5 @@
 #include "sceneobject.h"
 
-SceneObject::SceneObject()
-{
+SceneObject::SceneObject(){}
 
-}
-
-void SceneObject::transform(TransformMatrix _traseformMatrix)
-{
-
-}
+void SceneObject::transform(TransformMatrix _traseformMatrix){}

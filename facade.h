@@ -10,8 +10,7 @@
 #include "filereader.h"
 #include "qtscenedrawer.h"
 
-class Facade
-{
+class Facade{
 private:
     BaseFileReader* _fileReader;
     SceneDrawerBase* _scenDrawer;

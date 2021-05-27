@@ -6,8 +6,7 @@
 
 using std::string;
 
-class BaseFileReader
-{
+class BaseFileReader{
 public:
     BaseFileReader();
     virtual Scene readScene(string path, NormalizationParameters _normalizationParameters);

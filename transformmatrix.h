@@ -6,8 +6,7 @@
 #define MATRIX_COL 4
 #define MATRIX_ROW 4
 
-class TransformMatrix
-{
+class TransformMatrix{
 private:
     float _matr[MATRIX_COL][MATRIX_ROW];
 public:

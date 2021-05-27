@@ -8,8 +8,7 @@
 using std::string;
 using std::vector;
 
-class Scene
-{
+class Scene{
 private:
     vector<Figure> _figures;
 public:
@@ -18,6 +17,7 @@ public:
     vector<Figure> getFigures();
     Scene& operator += (Scene _scene);
     void transformFigures(TransformMatrix _transformmatrix);
+    void clear();
 };
 
 #endif // SCENE_H
