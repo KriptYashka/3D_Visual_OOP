@@ -39,7 +39,7 @@ void MainWindow::allButtonActivate(){
 
 void MainWindow::rotateModel(){
     _fasad.rotateScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
-    //_fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
+    _fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
     ui->graphicsView->drawScene(_fasad._scene);
 }
 
