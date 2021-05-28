@@ -1,7 +1,7 @@
 #include "qtscenedrawer.h"
 
 QtSceneDrawer::QtSceneDrawer(QWidget* mainWindow):QGraphicsView(mainWindow){
-    QScene = new QGraphicsScene(200, 150, width(), height());
+    QScene = new QGraphicsScene(0, 0, width(), height());
 }
 
 void QtSceneDrawer::drawScene(Scene _scene){

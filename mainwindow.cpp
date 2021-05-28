@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), _fasad(parent), ui
     ui->btnScale->setEnabled(false);
     ui->btnMoveModel->setEnabled(false);
     ui->btnRotateModel->setEnabled(false);
+    ui->btn_show->setEnabled(false);
 
     connect(ui->btnLoadFile,SIGNAL(clicked()),this,SLOT(loadFile()));
     connect(ui->btnMoveModel,SIGNAL(clicked()),this,SLOT(movingModel()));  // Передвижение
@@ -21,20 +22,24 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::loadFile(){
-    QString dialogFileName = QFileDialog::getOpenFileName(this,"Открыть модель", "/home/sap/Рабочий\ стол/laba4", tr("Text Files (*.csv)"));
+//    QString dialogFileName = QFileDialog::getOpenFileName(this,"Открыть модель", "/home/sap/Рабочий\ стол/laba4", tr("Text Files (*.csv)"));
+//    fileName = dialogFileName.toStdString();
+    QString dialogFileName = "schools_exams.csv";
     fileName = dialogFileName.toStdString();
     ui->leFilePath->setText(dialogFileName);
+    allButtonActivate();
 }
 
 void MainWindow::allButtonActivate(){
     ui->btnScale->setEnabled(true);
     ui->btnMoveModel->setEnabled(true);
     ui->btnRotateModel->setEnabled(true);
+    ui->btn_show->setEnabled(true);
 }
 
 void MainWindow::rotateModel(){
     _fasad.rotateScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
-    _fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
+    //_fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
     ui->graphicsView->drawScene(_fasad._scene);
 }
 

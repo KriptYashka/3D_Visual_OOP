@@ -18,6 +18,7 @@ private:
 
 public:
     Scene _scene;
+    Scene _scenedata;
     Facade(QWidget*);
 
     FacadeOperationResult drawScene();

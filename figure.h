@@ -6,7 +6,7 @@
 #include "sceneobject.h"
 #include "edge.h"
 #include "vertex.h"
-using std::vector;
+using namespace std;
 
 class Figure : public SceneObject{
 private:
@@ -19,7 +19,6 @@ public:
     vector<Edge> getEdges();
 
     void virtual transform(TransformMatrix _transformMatrix) override;
-
 };
 
-#endif // FIGURE_H
+#endif

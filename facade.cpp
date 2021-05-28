@@ -15,6 +15,7 @@ FacadeOperationResult Facade::loadScene(string path, NormalizationParameters _no
     FacadeOperationResult _operationRes("File did not open!", false);
     _scene.clear();
     _scene += _fileReader->readScene(path, _normalizationParameters);
+    _scenedata = _scene;
     if (_scene.getFigures().size() != 0){
         _operationRes.setMessage("File is successful open!");
         _operationRes.setIsSuccess(true);
@@ -24,8 +25,9 @@ FacadeOperationResult Facade::loadScene(string path, NormalizationParameters _no
 
 FacadeOperationResult Facade::moveScene(float x, float y, float z){
     FacadeOperationResult _operationRes("Empty file!",false);
-    if (_scene.getFigures().size() != 0){
-        _scene.transformFigures(TransformMatrixBuilder::createMoveMatrix(x,y,z));
+    if (_scenedata.getFigures().size() != 0){
+        _scenedata.transformFigures(TransformMatrixBuilder::createMoveMatrix(x,y,z));
+        _scene = _scenedata;
         _operationRes.setIsSuccess(true);
         _operationRes.setMessage("File successful moving!");
     }
@@ -34,8 +36,9 @@ FacadeOperationResult Facade::moveScene(float x, float y, float z){
 
 FacadeOperationResult Facade::rotateScene(float x, float y, float z){
     FacadeOperationResult _operationRes("Empty file!",false);
-    if(_scene.getFigures().size() != 0){
-        _scene.transformFigures(TransformMatrixBuilder::createRotationMatrix(x,y,z));
+    if(_scenedata.getFigures().size() != 0){
+        _scenedata.transformFigures(TransformMatrixBuilder::createRotationMatrix(x,y,z));
+        _scene = _scenedata;
         _operationRes.setIsSuccess(true);
         _operationRes.setMessage("File successful rotate!");
     }
@@ -44,8 +47,9 @@ FacadeOperationResult Facade::rotateScene(float x, float y, float z){
 
 FacadeOperationResult Facade::scaleScene(float x, float y, float z){
     FacadeOperationResult _operationRes("Empty file!",false);
-    if (_scene.getFigures().size() != 0){
-        _scene.transformFigures(TransformMatrixBuilder::createScaleMatrix(x,y,z));
+    if (_scenedata.getFigures().size() != 0){
+        _scenedata.transformFigures(TransformMatrixBuilder::createScaleMatrix(x,y,z));
+        _scene = _scenedata;
         _operationRes.setIsSuccess(true);
         _operationRes.setMessage("File successful scale!");
     }
@@ -54,8 +58,8 @@ FacadeOperationResult Facade::scaleScene(float x, float y, float z){
 
 FacadeOperationResult Facade::normalizeScene(float min, float max){
     FacadeOperationResult _operationRes("Empty file!",false);
-    if (_scene.getFigures().size() != 0){
-        _scene.normalizationVertex(_scene.getFigures().at(0).getVertices(), min, max);
+    if (_scenedata.getFigures().size() != 0){
+        _scene.normalizationVertex(_scenedata.getFigures().at(0).getVertices(), min, max);
         _operationRes.setIsSuccess(true);
         _operationRes.setMessage("File successful scale!");
     }

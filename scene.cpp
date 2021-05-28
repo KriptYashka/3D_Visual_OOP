@@ -27,6 +27,7 @@ void Scene::transformFigures(TransformMatrix _transformmatrix){
 
 void Scene::normalizationVertex(vector<Vertex> _vertex, float min, float max){
     /* Процесс нормализации */
+    /* Использовать только на сцене для показа */
     vector<Vertex> newVertex;
     int tmpX, tmpY, tmpZ;
     int maxX, maxY, maxZ, minZ;
