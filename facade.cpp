@@ -24,7 +24,7 @@ FacadeOperationResult Facade::loadScene(string path, NormalizationParameters _no
 
 FacadeOperationResult Facade::moveScene(float x, float y, float z){
     FacadeOperationResult _operationRes("Empty file!",false);
-    if(_scene.getFigures().size() != 0){
+    if (_scene.getFigures().size() != 0){
         _scene.transformFigures(TransformMatrixBuilder::createMoveMatrix(x,y,z));
         _operationRes.setIsSuccess(true);
         _operationRes.setMessage("File successful moving!");
@@ -44,8 +44,18 @@ FacadeOperationResult Facade::rotateScene(float x, float y, float z){
 
 FacadeOperationResult Facade::scaleScene(float x, float y, float z){
     FacadeOperationResult _operationRes("Empty file!",false);
-    if(_scene.getFigures().size() != 0){
+    if (_scene.getFigures().size() != 0){
         _scene.transformFigures(TransformMatrixBuilder::createScaleMatrix(x,y,z));
+        _operationRes.setIsSuccess(true);
+        _operationRes.setMessage("File successful scale!");
+    }
+    return _operationRes;
+}
+
+FacadeOperationResult Facade::normalizeScene(float min, float max){
+    FacadeOperationResult _operationRes("Empty file!",false);
+    if (_scene.getFigures().size() != 0){
+        _scene.normalizationVertex(_scene.getFigures().at(0).getVertices(), min, max);
         _operationRes.setIsSuccess(true);
         _operationRes.setMessage("File successful scale!");
     }

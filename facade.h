@@ -17,7 +17,7 @@ private:
     NormalizationParameters _normPar;
 
 public:
-    Scene _scene;      //kosyak
+    Scene _scene;
     Facade(QWidget*);
 
     FacadeOperationResult drawScene();
@@ -25,6 +25,7 @@ public:
     FacadeOperationResult moveScene(float x, float y, float z);
     FacadeOperationResult rotateScene(float x, float y, float z);
     FacadeOperationResult scaleScene(float x, float y, float z);
+    FacadeOperationResult normalizeScene(float min, float max);
 };
 
 #endif // FACADE_H

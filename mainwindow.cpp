@@ -34,6 +34,7 @@ void MainWindow::allButtonActivate(){
 
 void MainWindow::rotateModel(){
     _fasad.rotateScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
+    _fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
     ui->graphicsView->drawScene(_fasad._scene);
 }
 
@@ -43,7 +44,7 @@ void MainWindow::movingModel(){
 }
 
 void MainWindow::modelToScale(){
-    _fasad.scaleScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
+    _fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
     ui->graphicsView->drawScene(_fasad._scene);
 }
 
@@ -59,7 +60,7 @@ void MainWindow::on_btn_show_clicked(){
         QMessageBox::information(0, "Info", "Примечание: 1. Первое значение диапозона должно быть меньш второго\n2. Диапозон по модулю должет превосходить 200");
     } else {
         _fasad.loadScene(fileName, _normalizationParameters);
-        ui->graphicsView->drawScene(_fasad._scene); // TODO: Косяк
+        ui->graphicsView->drawScene(_fasad._scene);
         allButtonActivate();
     }
 }
