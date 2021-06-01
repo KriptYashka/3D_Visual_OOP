@@ -12,7 +12,7 @@ public:
     FacadeOperationResult(string errorMessage, bool isSuccess);
     string getErrorMessage();
     bool isSuccess();
-    void setIsSuccess(bool flag);
+    void setSuccess(bool flag);
     void setMessage(string errorMessage);
 };
 
