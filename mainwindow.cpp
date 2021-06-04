@@ -4,7 +4,7 @@
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), _fasad(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
 
-    this->setWindowTitle("KriptYashka feat. OYarugin-mk collobaration");
+    this->setWindowTitle("OYarugin-mk feat. KriptYashka collobaration");
 
     ui->btnScale->setEnabled(false);
     ui->btnMoveModel->setEnabled(false);
@@ -12,9 +12,9 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), _fasad(parent), ui
     ui->btn_show->setEnabled(false);
 
     connect(ui->btnLoadFile,SIGNAL(clicked()),this,SLOT(loadFile()));
-    connect(ui->btnMoveModel,SIGNAL(clicked()),this,SLOT(movingModel()));
-    connect(ui->btnScale,SIGNAL(clicked()),this,SLOT(modelToScale()));
-    connect(ui->btnRotateModel,SIGNAL(clicked()),this,SLOT(rotateModel()));
+    connect(ui->btnMoveModel,SIGNAL(clicked()),this,SLOT(movingModel()));  // Передвижение
+    connect(ui->btnScale,SIGNAL(clicked()),this,SLOT(modelToScale()));  // Масштабирование
+    connect(ui->btnRotateModel,SIGNAL(clicked()),this,SLOT(rotateModel()));  // Поворот
 }
 
 MainWindow::~MainWindow(){
@@ -26,20 +26,20 @@ void MainWindow::loadFile(){
 //    fileName = dialogFileName.toStdString();
     QString dialogFileName = "schools_exams.csv";
     fileName = dialogFileName.toStdString();
-    ui->label_name->setText(dialogFileName);
-    ui->btn_show->setEnabled(true);
+    ui->leFilePath->setText(dialogFileName);
+    allButtonActivate();
 }
 
-void MainWindow::allButtonActivate(bool flag){
-    ui->btnScale->setEnabled(flag);
-    ui->btnMoveModel->setEnabled(flag);
-    ui->btnRotateModel->setEnabled(flag);
-    ui->btn_show->setEnabled(flag);
+void MainWindow::allButtonActivate(){
+    ui->btnScale->setEnabled(true);
+    ui->btnMoveModel->setEnabled(true);
+    ui->btnRotateModel->setEnabled(true);
+    ui->btn_show->setEnabled(true);
 }
 
 void MainWindow::rotateModel(){
     _fasad.rotateScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
-    //_fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
+    _fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
     ui->graphicsView->drawScene(_fasad._scene);
 }
 
@@ -61,15 +61,11 @@ void MainWindow::on_btn_show_clicked(){
     _normalizationParameters.dyStep = ui->leStepY->text().toFloat();
 
     if (_normalizationParameters.max <= _normalizationParameters.min || abs(_normalizationParameters.max - _normalizationParameters.min) < 200){
-        QMessageBox::warning(0, "Warning", "Диапозон нормировки задан неверно!");
+        QMessageBox::warning(0, "warning", "Диапозон нормировки задан неверно!");
         QMessageBox::information(0, "Info", "Примечание: 1. Первое значение диапозона должно быть меньш второго\n2. Диапозон по модулю должет превосходить 200");
     } else {
-        allButtonActivate(true);
         _fasad.loadScene(fileName, _normalizationParameters);
         ui->graphicsView->drawScene(_fasad._scene);
+        allButtonActivate();
     }
-}
-
-void MainWindow::on_btn_present_clicked(){
-
 }

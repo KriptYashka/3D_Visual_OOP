@@ -16,7 +16,17 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="2" column="0" colspan="2">
-     <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,0">
+      <item>
+       <widget class="QtSceneDrawer" name="graphicsView">
+        <property name="minimumSize">
+         <size>
+          <width>800</width>
+          <height>700</height>
+         </size>
+        </property>
+       </widget>
+      </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -155,7 +165,7 @@
           <item>
            <widget class="QLabel" name="label_10">
             <property name="text">
-             <string>                   Шаг по осям:</string>
+             <string>                               Шаг:</string>
             </property>
            </widget>
           </item>
@@ -224,7 +234,7 @@
           <item>
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>                       Нормализация:</string>
+             <string>                       Нормировка:</string>
             </property>
            </widget>
           </item>
@@ -276,7 +286,7 @@
                </size>
               </property>
               <property name="text">
-               <string>500</string>
+               <string>300</string>
               </property>
              </widget>
             </item>
@@ -299,6 +309,13 @@
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="btn_show">
+          <property name="text">
+           <string>Показать модель</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="verticalSpacer">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -310,19 +327,6 @@
            </size>
           </property>
          </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_present">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Запуск демонстрации</string>
-          </property>
-         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnRotateModel">
@@ -367,7 +371,7 @@
       </item>
      </layout>
     </item>
-    <item row="3" column="0" colspan="2">
+    <item row="0" column="1">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="label_2">
@@ -377,9 +381,15 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_name">
-        <property name="text">
-         <string>Имя файла</string>
+       <widget class="QLineEdit" name="leFilePath">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+        <property name="cursorMoveStyle">
+         <enum>Qt::LogicalMoveStyle</enum>
         </property>
        </widget>
       </item>
@@ -390,24 +400,7 @@
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="QPushButton" name="btn_show">
-        <property name="text">
-         <string>Показать модель</string>
-        </property>
-       </widget>
-      </item>
      </layout>
-    </item>
-    <item row="2" column="2">
-     <widget class="QtSceneDrawer" name="graphicsView">
-      <property name="minimumSize">
-       <size>
-        <width>800</width>
-        <height>700</height>
-       </size>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>

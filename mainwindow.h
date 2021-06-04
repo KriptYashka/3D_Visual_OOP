@@ -7,7 +7,6 @@
 #include "normalizationparameters.h"
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QThread>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,9 +27,8 @@ private slots:
     void rotateModel();
     void movingModel();
     void modelToScale();
-    void allButtonActivate(bool flag = true);
+    void allButtonActivate();
     void on_btn_show_clicked();
-    void on_btn_present_clicked();
 
 private:
     Ui::MainWindow *ui;
