@@ -69,14 +69,7 @@ void MainWindow::on_btn_show_clicked(){
         ui->graphicsView->drawScene(_fasad._scene);
     }
 }
-bool flag_present = false;
+
 void MainWindow::on_btn_present_clicked(){
-    allButtonActivate(false);
-    flag_present = !flag_present;
-    while (flag_present) {
-        _fasad.rotateScene(10, 0, 0);
-        _fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
-        ui->graphicsView->drawScene(_fasad._scene);
-        QThread::sleep(1);
-    }
+
 }
