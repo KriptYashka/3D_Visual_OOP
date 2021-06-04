@@ -30,18 +30,16 @@ void Scene::normalizationVertex(vector<Vertex> _vertex, float min, float max){
     /* Использовать только на сцене для показа */
     vector<Vertex> newVertex;
     int tmpX, tmpY, tmpZ;
-    int maxX, maxY, maxZ, minZ, minX, minY;
+    int maxX, maxY, maxZ, minZ;
 
     maxX = getMax(_vertex, xAx);
     maxY = getMax(_vertex, yAx);
     maxZ = getMax(_vertex, zAx);
-    minX = getMin(_vertex, xAx);
-    minY = getMin(_vertex, yAx);
     minZ = getMin(_vertex, zAx);
 
     for(int i = 0; i < (int)_vertex.size(); i++){
-        tmpX = min + (_vertex[i].getPosition().x - minX) * (max - min) / (maxX - minX);
-        tmpY = min + (_vertex[i].getPosition().y - minY) * (max - min) / (maxY - minY);
+        tmpX = min + (_vertex[i].getPosition().x - MIN_X) * (max - min) / (maxX - MIN_X);
+        tmpY = min + (_vertex[i].getPosition().y - MIN_Y) * (max - min) / (maxY - MIN_Y);
         tmpZ = min + (_vertex[i].getPosition().z - minZ) * (max - min) / (maxZ - minZ);
         Vertex tmp(tmpX, tmpY, tmpZ);
         newVertex.push_back(tmp);
