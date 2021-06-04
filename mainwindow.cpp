@@ -26,7 +26,7 @@ void MainWindow::loadFile(){
 //    fileName = dialogFileName.toStdString();
     QString dialogFileName = "schools_exams.csv";
     fileName = dialogFileName.toStdString();
-    ui->leFilePath->setText(dialogFileName);
+    ui->label_name->setText(dialogFileName);
     allButtonActivate();
 }
 

@@ -1,7 +1,7 @@
 #include "qtscenedrawer.h"
 
 QtSceneDrawer::QtSceneDrawer(QWidget* mainWindow):QGraphicsView(mainWindow){
-    QScene = new QGraphicsScene(0, 0, width(), height());
+    QScene = new QGraphicsScene(200, 200, width(), height());
 }
 
 void QtSceneDrawer::drawScene(Scene _scene){
@@ -36,13 +36,13 @@ void QtSceneDrawer::drawLine(Scene _scene){
 
 void QtSceneDrawer::drawVertices(Scene _scene){
     QPen pen(Qt::black);
-    QBrush br(Qt::blue);
+    QBrush br(Qt::green);
     pen.setWidth(2);
-    int sizeOfPoint = 10;
+    int sizeOfPoint = 5;
     int countOfPoints = _scene.getFigures()[0].getVertices().size();
     for (int i = 0; i < countOfPoints; i++){
         Point curPoint = _scene.getFigures()[0].getVertices()[i].getPosition();
-        QScene->addEllipse(curPoint.x - 5, curPoint.y - sizeOfPoint/2, sizeOfPoint, sizeOfPoint, pen, br);
+        QScene->addEllipse(curPoint.x - sizeOfPoint/2.0, curPoint.y - sizeOfPoint/2.0, sizeOfPoint, sizeOfPoint, pen, br);
     }
 }
 

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1032</width>
+    <width>1112</width>
     <height>797</height>
    </rect>
   </property>
@@ -16,17 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="2" column="0" colspan="2">
-     <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,0">
-      <item>
-       <widget class="QtSceneDrawer" name="graphicsView">
-        <property name="minimumSize">
-         <size>
-          <width>800</width>
-          <height>700</height>
-         </size>
-        </property>
-       </widget>
-      </item>
+     <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="0">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -165,7 +155,7 @@
           <item>
            <widget class="QLabel" name="label_10">
             <property name="text">
-             <string>                               Шаг:</string>
+             <string>                   Шаг по осям:</string>
             </property>
            </widget>
           </item>
@@ -234,7 +224,7 @@
           <item>
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>                       Нормировка:</string>
+             <string>                       Нормализация:</string>
             </property>
            </widget>
           </item>
@@ -286,7 +276,7 @@
                </size>
               </property>
               <property name="text">
-               <string>300</string>
+               <string>500</string>
               </property>
              </widget>
             </item>
@@ -305,13 +295,6 @@
          <widget class="Line" name="line_6">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_show">
-          <property name="text">
-           <string>Показать модель</string>
           </property>
          </widget>
         </item>
@@ -371,7 +354,7 @@
       </item>
      </layout>
     </item>
-    <item row="0" column="1">
+    <item row="3" column="0" colspan="2">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="label_2">
@@ -381,15 +364,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="leFilePath">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-        <property name="cursorMoveStyle">
-         <enum>Qt::LogicalMoveStyle</enum>
+       <widget class="QLabel" name="label_name">
+        <property name="text">
+         <string>Имя файла</string>
         </property>
        </widget>
       </item>
@@ -400,7 +377,24 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="btn_show">
+        <property name="text">
+         <string>Показать модель</string>
+        </property>
+       </widget>
+      </item>
      </layout>
+    </item>
+    <item row="2" column="2">
+     <widget class="QtSceneDrawer" name="graphicsView">
+      <property name="minimumSize">
+       <size>
+        <width>800</width>
+        <height>700</height>
+       </size>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -409,7 +403,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1032</width>
+     <width>1112</width>
      <height>20</height>
     </rect>
    </property>
