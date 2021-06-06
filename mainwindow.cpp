@@ -4,7 +4,7 @@
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), _fasad(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
 
-    this->setWindowTitle("OYarugin-mk feat. KriptYashka collobaration");
+    this->setWindowTitle("KriptYashka feat. OYarugin-mk collobaration");
 
     ui->btnScale->setEnabled(false);
     ui->btnMoveModel->setEnabled(false);
@@ -22,7 +22,7 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::loadFile(){
-//    QString dialogFileName = QFileDialog::getOpenFileName(this,"Открыть модель", "/home/sap/Рабочий\ стол/laba4", tr("Text Files (*.csv)"));
+//    QString dialogFileName = QFileDialog::getOpenFileName(this,"Открыть модель", "", tr("Text Files (*.csv)"));
 //    fileName = dialogFileName.toStdString();
     QString dialogFileName = "schools_exams.csv";
     fileName = dialogFileName.toStdString();
