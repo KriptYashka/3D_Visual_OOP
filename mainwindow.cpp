@@ -27,7 +27,7 @@ void MainWindow::loadFile(){
     QString dialogFileName = "schools_exams.csv";
     fileName = dialogFileName.toStdString();
     ui->label_name->setText(dialogFileName);
-    allButtonActivate();
+    ui->btn_show->setDisabled(false);
 }
 
 void MainWindow::allButtonActivate(){

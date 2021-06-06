@@ -10,7 +10,7 @@ TransformMatrix TransformMatrixBuilder::createRotationMatrix(float x, float y, f
     float transfomrMatrixRotX[4][4] = { {1,0,0,0},
                                        {0,float(cos(_x)),float(-sin(_x)),0},
                                        {0,float(sin(_x)),float(cos(_x)),0},
-                                       {0,0,0,1} // требуется правильный поворот
+                                       {0,0,0,1}
                                      };
     float transformMatrixRotY[4][4] = { {float(cos(_y)),0,float(sin(_y)),0},
                                         {0,1,0,0},
