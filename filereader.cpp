@@ -19,8 +19,8 @@ Scene FileReader::readScene(string path, NormalizationParameters _normalizationP
         currenValue = strtok (cStr,",");
         for(int j = 0; currenValue != NULL; j += _normalizationParameters.dxStep){
             tmpZ = atoi(currenValue);
-            tmpX = j + 1;
-            tmpY = i + 1;
+            tmpX = (j + 1) * _normalizationParameters.dxStep;
+            tmpY = (i + 1) * _normalizationParameters.dyStep;
             Vertex tmp(tmpX, tmpY, tmpZ);  //создаем еще одну вершину из считанных координат
             _vertex.push_back(tmp);        //помещаем в наш массив вершнин
             currenValue = strtok (NULL,",");
@@ -29,7 +29,7 @@ Scene FileReader::readScene(string path, NormalizationParameters _normalizationP
     delete [] cStr;
 
     Scene _scene = Scene();
-    _scene.normalizationVertex(_vertex, _normalizationParameters.min, _normalizationParameters.max);
+    _scene.normalizationVertex(_vertex, _normalizationParameters);
 
     return _scene;
 }

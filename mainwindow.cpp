@@ -38,9 +38,14 @@ void MainWindow::allButtonActivate(){
 }
 
 void MainWindow::rotateModel(){
-    _fasad.rotateScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
-    _fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
-    ui->graphicsView->drawScene(_fasad._scene);
+    bool flag = setNormParameters();
+    if (flag){
+        _fasad.rotateScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
+        _fasad.normalizeScene(_normalizationParameters);
+        ui->graphicsView->drawScene(_fasad._scene);
+    } else {
+        QMessageBox::warning(0, "warning", "Диапозон нормировки задан неверно!");
+    }
 }
 
 void MainWindow::movingModel(){
@@ -49,18 +54,33 @@ void MainWindow::movingModel(){
 }
 
 void MainWindow::modelToScale(){
-    _fasad.normalizeScene(ui->leNormMin->text().toFloat(), ui->leNormMax->text().toFloat());
-    ui->graphicsView->drawScene(_fasad._scene);
+    bool flag = setNormParameters();
+    if (flag){
+        _fasad.normalizeScene(_normalizationParameters);
+        ui->graphicsView->drawScene(_fasad._scene);
+    } else {
+        QMessageBox::warning(0, "warning", "Диапозон нормировки задан неверно!");
+    }
 }
 
-void MainWindow::on_btn_show_clicked(){
+bool MainWindow::setNormParameters(){
     /* Здесь устанавливается нормализация */
     _normalizationParameters.min = ui->leNormMin->text().toFloat();
     _normalizationParameters.max = ui->leNormMax->text().toFloat();
     _normalizationParameters.dxStep = ui->leStepX->text().toFloat();
     _normalizationParameters.dyStep = ui->leStepY->text().toFloat();
 
+    bool flag = true;
     if (_normalizationParameters.max <= _normalizationParameters.min || abs(_normalizationParameters.max - _normalizationParameters.min) < 200){
+        flag = false;
+    }
+    return flag;
+}
+
+void MainWindow::on_btn_show_clicked(){
+    bool flag = setNormParameters();
+
+    if (!flag){
         QMessageBox::warning(0, "warning", "Диапозон нормировки задан неверно!");
         QMessageBox::information(0, "Info", "Примечание: 1. Первое значение диапозона должно быть меньш второго\n2. Диапозон по модулю должет превосходить 200");
     } else {

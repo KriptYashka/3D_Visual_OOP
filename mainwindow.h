@@ -29,6 +29,7 @@ private slots:
     void modelToScale();
     void allButtonActivate();
     void on_btn_show_clicked();
+    bool setNormParameters();
 
 private:
     Ui::MainWindow *ui;

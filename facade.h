@@ -26,7 +26,7 @@ public:
     FacadeOperationResult moveScene(float x, float y, float z);
     FacadeOperationResult rotateScene(float x, float y, float z);
     FacadeOperationResult scaleScene(float x, float y, float z);
-    FacadeOperationResult normalizeScene(float min, float max);
+    FacadeOperationResult normalizeScene(NormalizationParameters _normalizationParameters);
 };
 
 #endif // FACADE_H

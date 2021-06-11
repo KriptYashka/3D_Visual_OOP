@@ -56,10 +56,10 @@ FacadeOperationResult Facade::scaleScene(float x, float y, float z){
     return _operationRes;
 }
 
-FacadeOperationResult Facade::normalizeScene(float min, float max){
+FacadeOperationResult Facade::normalizeScene(NormalizationParameters params){
     FacadeOperationResult _operationRes("Empty file!",false);
     if (_scenedata.getFigures().size() != 0){
-        _scene.normalizationVertex(_scenedata.getFigures().at(0).getVertices(), min, max);
+        _scene.normalizationVertex(_scenedata.getFigures().at(0).getVertices(), params);
         _operationRes.setIsSuccess(true);
         _operationRes.setMessage("File successful scale!");
     }

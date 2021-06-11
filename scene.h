@@ -30,7 +30,7 @@ public:
     Scene& operator += (Scene _scene);
     void transformFigures(TransformMatrix _transformmatrix);
     void clear();
-    void normalizationVertex(vector<Vertex> _vertex, float min, float max);
+    void normalizationVertex(vector<Vertex> _vertex, NormalizationParameters params);
 };
 
 #endif

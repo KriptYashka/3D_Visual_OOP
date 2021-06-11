@@ -25,7 +25,7 @@ void Scene::transformFigures(TransformMatrix _transformmatrix){
         _figures[i].transform(_transformmatrix);
 }
 
-void Scene::normalizationVertex(vector<Vertex> _vertex, float min, float max){
+void Scene::normalizationVertex(vector<Vertex> _vertex, NormalizationParameters params){
     /* Процесс нормализации */
     /* Использовать только на сцене для показа */
     vector<Vertex> newVertex;
@@ -39,10 +39,13 @@ void Scene::normalizationVertex(vector<Vertex> _vertex, float min, float max){
     minY = getMin(_vertex, yAx);
     minZ = getMin(_vertex, zAx);
 
+    int min = params.min;
+    int max = params.max;
+
     for(int i = 0; i < (int)_vertex.size(); i++){
-        tmpX = min + (_vertex[i].getPosition().x - minX) * (max - min) / (maxX - minX);
-        tmpY = min + (_vertex[i].getPosition().y - minY) * (max - min) / (maxY - minY);
-        tmpZ = min + (_vertex[i].getPosition().z - minZ) * (max - min) / (maxZ - minZ);
+        tmpX = (min + (_vertex[i].getPosition().x - minX) * (max - min) / (maxX - minX)) * params.dxStep;
+        tmpY = (min + (_vertex[i].getPosition().y - minY) * (max - min) / (maxY - minY)) * params.dyStep;
+        tmpZ = (min + (_vertex[i].getPosition().z - minZ) * (max - min) / (maxZ - minZ));
         Vertex tmp(tmpX, tmpY, tmpZ);
         newVertex.push_back(tmp);
     }
