@@ -4,7 +4,7 @@ FileReader::FileReader(){}
 
 Scene FileReader::readScene(string path, NormalizationParameters _normalizationParameters){
     vector<Vertex> _vertex;
-    int tmpX, tmpY, tmpZ;
+    double tmpX, tmpY, tmpZ;
     ifstream file;
     file.open(path);
     string str;
@@ -19,8 +19,8 @@ Scene FileReader::readScene(string path, NormalizationParameters _normalizationP
         currenValue = strtok (cStr,",");
         for(int j = 0; currenValue != NULL; j += _normalizationParameters.dxStep){
             tmpZ = atoi(currenValue);
-            tmpX = (j + 1) * _normalizationParameters.dxStep;
-            tmpY = (i + 1) * _normalizationParameters.dyStep;
+            tmpX = j + 1;
+            tmpY = i + 1;
             Vertex tmp(tmpX, tmpY, tmpZ);  //создаем еще одну вершину из считанных координат
             _vertex.push_back(tmp);        //помещаем в наш массив вершнин
             currenValue = strtok (NULL,",");

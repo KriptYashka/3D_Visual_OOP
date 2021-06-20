@@ -15,14 +15,14 @@
 class Scene{
 private:
     vector<Figure> _figures;
-    int getMinZ(vector<Vertex> _vertex);
-    int getMinY(vector<Vertex> _vertex);
-    int getMinX(vector<Vertex> _vertex);
-    int getMaxZ(vector<Vertex> _vertex);
-    int getMaxY(vector<Vertex> _vertex);
-    int getMaxX(vector<Vertex> _vertex);
-    int getMin(vector<Vertex> _vertex, Axis ax);
-    int getMax(vector<Vertex> _vertex, Axis ax);
+    double getMinZ(vector<Vertex> _vertex);
+    double getMinY(vector<Vertex> _vertex);
+    double getMinX(vector<Vertex> _vertex);
+    double getMaxZ(vector<Vertex> _vertex);
+    double getMaxY(vector<Vertex> _vertex);
+    double getMaxX(vector<Vertex> _vertex);
+    double getMin(vector<Vertex> _vertex, Axis ax);
+    double getMax(vector<Vertex> _vertex, Axis ax);
 public:
     Scene();
     Scene(vector<Figure> _figures);

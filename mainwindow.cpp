@@ -71,7 +71,10 @@ bool MainWindow::setNormParameters(){
     _normalizationParameters.dyStep = ui->leStepY->text().toFloat();
 
     bool flag = true;
-    if (_normalizationParameters.max <= _normalizationParameters.min || abs(_normalizationParameters.max - _normalizationParameters.min) < 200){
+    if (_normalizationParameters.max <= _normalizationParameters.min ||
+            abs(_normalizationParameters.max - _normalizationParameters.min) < 200 ||
+            _normalizationParameters.dxStep < 1 ||
+            _normalizationParameters.dyStep < 1){
         flag = false;
     }
     return flag;

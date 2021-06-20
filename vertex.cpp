@@ -2,7 +2,7 @@
 
 Vertex::Vertex() : SceneObject(){}
 
-Vertex::Vertex(int _x, int _y, int _z){
+Vertex::Vertex(double _x, double _y, double _z){
     _position.x = _x;
     _position.y = _y;
     _position.z = _z;

@@ -29,8 +29,8 @@ void Scene::normalizationVertex(vector<Vertex> _vertex, NormalizationParameters 
     /* Процесс нормализации */
     /* Использовать только на сцене для показа */
     vector<Vertex> newVertex;
-    int tmpX, tmpY, tmpZ;
-    int maxX, maxY, maxZ, minZ, minX, minY;
+    double tmpX, tmpY, tmpZ;
+    double maxX, maxY, maxZ, minZ, minX, minY;
 
     maxX = getMax(_vertex, xAx);
     maxY = getMax(_vertex, yAx);
@@ -39,8 +39,8 @@ void Scene::normalizationVertex(vector<Vertex> _vertex, NormalizationParameters 
     minY = getMin(_vertex, yAx);
     minZ = getMin(_vertex, zAx);
 
-    int min = params.min;
-    int max = params.max;
+    double min = params.min;
+    double max = params.max;
 
     for(int i = 0; i < (int)_vertex.size(); i++){
         tmpX = (min + (_vertex[i].getPosition().x - minX) * (max - min) / (maxX - minX)) * params.dxStep;
@@ -53,7 +53,7 @@ void Scene::normalizationVertex(vector<Vertex> _vertex, NormalizationParameters 
     _figures.push_back(newVertex);
 }
 
-int Scene::getMax(vector<Vertex> _vertex, Axis ax){
+double Scene::getMax(vector<Vertex> _vertex, Axis ax){
     int resMax = 0;
     switch (ax){
     case xAx:
@@ -69,7 +69,7 @@ int Scene::getMax(vector<Vertex> _vertex, Axis ax){
     return resMax;
 }
 
-int Scene::getMin(vector<Vertex> _vertex, Axis ax){
+double Scene::getMin(vector<Vertex> _vertex, Axis ax){
     int resMin = 0;
     switch (ax){
     case xAx:
@@ -85,7 +85,7 @@ int Scene::getMin(vector<Vertex> _vertex, Axis ax){
     return resMin;
 }
 
-int Scene::getMaxX(vector<Vertex> _vertex){
+double Scene::getMaxX(vector<Vertex> _vertex){
     int resMaxCount = _vertex[0].getPosition().x;
     for (int i = 1 ; i < (int)_vertex.size(); i++){
         if (_vertex[i].getPosition().x > resMaxCount)
@@ -94,7 +94,7 @@ int Scene::getMaxX(vector<Vertex> _vertex){
     return resMaxCount;
 }
 
-int Scene::getMaxY(vector<Vertex> _vertex){
+double Scene::getMaxY(vector<Vertex> _vertex){
     int resMaxCount = _vertex[0].getPosition().y;
     for (int i = 1 ; i < (int)_vertex.size(); i++){
         if (_vertex[i].getPosition().y > resMaxCount)
@@ -103,7 +103,7 @@ int Scene::getMaxY(vector<Vertex> _vertex){
     return resMaxCount;
 }
 
-int Scene::getMaxZ(vector<Vertex> _vertex){
+double Scene::getMaxZ(vector<Vertex> _vertex){
     int resMaxCount = _vertex[0].getPosition().z;
     for (int i = 1 ; i < (int)_vertex.size(); i++) {
         if (_vertex[i].getPosition().z > resMaxCount)
@@ -112,7 +112,7 @@ int Scene::getMaxZ(vector<Vertex> _vertex){
     return resMaxCount;
 }
 
-int Scene::getMinX(vector<Vertex> _vertex){
+double Scene::getMinX(vector<Vertex> _vertex){
     int resMinCount = _vertex[0].getPosition().x;
         for (int i = 1 ; i < (int)_vertex.size(); i++) {
             if (_vertex[i].getPosition().x < resMinCount)
@@ -121,7 +121,7 @@ int Scene::getMinX(vector<Vertex> _vertex){
         return resMinCount;
 }
 
-int Scene::getMinY(vector<Vertex> _vertex){
+double Scene::getMinY(vector<Vertex> _vertex){
     int resMinCount = _vertex[0].getPosition().y;
         for(int i = 1 ; i < (int)_vertex.size(); i++){
             if(_vertex[i].getPosition().y < resMinCount)
@@ -130,7 +130,7 @@ int Scene::getMinY(vector<Vertex> _vertex){
         return resMinCount;
 }
 
-int Scene::getMinZ(vector<Vertex> _vertex){
+double Scene::getMinZ(vector<Vertex> _vertex){
     int resMinCount = _vertex[0].getPosition().z;
         for (int i = 1; i < (int)_vertex.size(); i++){
             if (_vertex[i].getPosition().z < resMinCount)

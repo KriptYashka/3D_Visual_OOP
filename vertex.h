@@ -10,7 +10,7 @@ private:
     Point _position;
 public:
     Vertex();
-    Vertex(int _x, int _y, int _z);
+    Vertex(double _x, double _y, double _z);
     Point getPosition();
     void transform(TransformMatrix _transformMatrix) override;
 };
