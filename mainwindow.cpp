@@ -49,6 +49,7 @@ void MainWindow::on_btn_show_clicked(){
             ui->graphicsView->drawScene(_fasad.picture);
             allButtonActivate(true);
         } else {
+            QMessageBox::warning(0, "warning", "Невозможно прочитать файл");
             ui->graphicsView->drawScene();
             allButtonActivate(false);
         }
@@ -67,17 +68,25 @@ void MainWindow::on_btnLoadFile_clicked(){
 
 void MainWindow::on_btnMoveModel_clicked(){
     /* Дает запрос на передвижение модели */
-    _fasad.offsetScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
-    ui->graphicsView->drawScene(_fasad.picture);
+    FacadeOperationResult res = _fasad.offsetScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
+    if (res.isSuccess()){
+        ui->graphicsView->drawScene(_fasad.picture);
+    } else {
+        QMessageBox::warning(0, "warning", "Ошибка модели.");
+    }
 }
 
 void MainWindow::on_btnRotateModel_clicked(){
     /* Дает запрос на поворот модели */
     bool flag = serValidNormalizationParameters();
     if (flag){
-        _fasad.rotateScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
-        _fasad.normalizeScene(_normalizationParameters);
-        ui->graphicsView->drawScene(_fasad.picture);
+        FacadeOperationResult res = _fasad.rotateScene(ui->leValueX->text().toFloat(), ui->leValueY->text().toFloat(), ui->leValueZ->text().toFloat());
+        FacadeOperationResult res2 = _fasad.normalizeScene(_normalizationParameters);
+        if (res.isSuccess() && res2.isSuccess()){
+            ui->graphicsView->drawScene(_fasad.picture);
+        } else {
+            QMessageBox::warning(0, "warning", "Ошибка модели.");
+        }
     } else {
         QMessageBox::warning(0, "warning", "Диапозон нормировки задан неверно!");
     }
@@ -87,8 +96,12 @@ void MainWindow::on_btnScale_clicked(){
     /* Дает запрос на масштабирование модели */
     bool flag = serValidNormalizationParameters();
     if (flag){
-        _fasad.normalizeScene(_normalizationParameters);
-        ui->graphicsView->drawScene(_fasad.picture);
+        FacadeOperationResult res = _fasad.normalizeScene(_normalizationParameters);
+        if (res.isSuccess()){
+            ui->graphicsView->drawScene(_fasad.picture);
+        } else {
+            QMessageBox::warning(0, "warning", "Ошибка модели.");
+        }
     } else {
         QMessageBox::warning(0, "warning", "Диапозон нормировки задан неверно!");
     }
