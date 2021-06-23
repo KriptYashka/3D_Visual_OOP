@@ -11,12 +11,12 @@ Scene FileReader::readScene(string path, NormalizationParameters _normalizationP
     if (!file.is_open())
         return Scene();
 
-    char* cStr= new char[255];
+    char* charWord = new char[255];
     char *currenValue = new char[255];
 
     for (int i = 1; getline(file, str); i += _normalizationParameters.dyStep){
-        strcpy(cStr, str.c_str());
-        currenValue = strtok (cStr,",");
+        strcpy(charWord, str.c_str());
+        currenValue = strtok (charWord,",");
         for(int j = 1; currenValue != NULL; j += _normalizationParameters.dxStep){
             tmpZ = atoi(currenValue);
             tmpX = j;
@@ -26,7 +26,7 @@ Scene FileReader::readScene(string path, NormalizationParameters _normalizationP
             currenValue = strtok (NULL,",");
         }
     }
-    delete [] cStr;
+    delete [] charWord;
 
     Scene _scene = Scene();
     _scene.normalizationVertex(_vertex, _normalizationParameters);

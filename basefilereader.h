@@ -2,7 +2,7 @@
 #define BASEFILEREADER_H
 #include <iostream>
 #include "normalizationparameters.h"
-#include "scene.h"                      //в  UML нет такого подключения
+#include "scene.h"
 
 using std::string;
 

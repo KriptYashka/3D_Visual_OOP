@@ -6,9 +6,9 @@
 class TransformMatrixBuilder{
 public:
     TransformMatrixBuilder();
-    static TransformMatrix createRotationMatrix(float x,float y, float z);
-    static TransformMatrix createMoveMatrix(float x,float y, float z);
-    static TransformMatrix createScaleMatrix(float x,float y, float z);
+    static TransformMatrix createRotationMatrix(double x, double y, double z);
+    static TransformMatrix createMoveMatrix(double x, double y, double z);
+    static TransformMatrix createScaleMatrix(double x, double y, double z);
 };
 
 #endif // TRANSFORMMATRIXBUILDER_H

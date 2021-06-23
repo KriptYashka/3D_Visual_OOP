@@ -8,10 +8,10 @@
 
 class TransformMatrix{
 private:
-    float _matr[MATRIX_COL][MATRIX_ROW];
+    double _matr[MATRIX_COL][MATRIX_ROW];
 public:
     TransformMatrix();
-    TransformMatrix(float matr[MATRIX_COL][MATRIX_ROW]);
+    TransformMatrix(double matr[MATRIX_COL][MATRIX_ROW]);
     TransformMatrix operator*(TransformMatrix _transformMatrix);
     Point TransformPoint(Point point);
 };

@@ -23,9 +23,9 @@ public:
 
     FacadeOperationResult drawScene();
     FacadeOperationResult loadScene(string path, NormalizationParameters _normalizationParameters);
-    FacadeOperationResult offsetScene(float x, float y, float z);
-    FacadeOperationResult rotateScene(float x, float y, float z);
-    FacadeOperationResult scaleScene(float x, float y, float z);
+    FacadeOperationResult offsetScene(double x, double y, double z);
+    FacadeOperationResult rotateScene(double x, double y, double z);
+    FacadeOperationResult scaleScene(double x, double y, double z);
     FacadeOperationResult normalizeScene(NormalizationParameters _normalizationParameters);
 };
 

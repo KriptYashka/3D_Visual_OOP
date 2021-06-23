@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1112</width>
-    <height>797</height>
+    <width>1205</width>
+    <height>789</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="0" colspan="2">
+    <item row="2" column="1" colspan="2">
      <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="0">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -27,16 +27,27 @@
          </widget>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QPushButton" name="btnLoadFile">
+            <property name="text">
+             <string>Load</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_show">
+            <property name="text">
+             <string>Show model</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
          <widget class="Line" name="line_7">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_11">
-          <property name="text">
-           <string>                     Значения по осям:</string>
           </property>
          </widget>
         </item>
@@ -81,6 +92,9 @@
             <property name="text">
              <string>10</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
            </widget>
           </item>
          </layout>
@@ -108,6 +122,9 @@
             <property name="text">
              <string>0</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
            </widget>
           </item>
          </layout>
@@ -132,6 +149,9 @@
             <property name="text">
              <string>0</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
            </widget>
           </item>
          </layout>
@@ -144,44 +164,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnRotateModel">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Вращать модель</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnMoveModel">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Перемещать модель</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QLabel" name="label_10">
             <property name="text">
-             <string>                   Шаг по осям:</string>
+             <string>Step by axis:</string>
             </property>
            </widget>
           </item>
@@ -196,7 +183,7 @@
                </size>
               </property>
               <property name="text">
-               <string>По Х:</string>
+               <string>X:</string>
               </property>
              </widget>
             </item>
@@ -204,6 +191,9 @@
              <widget class="QLineEdit" name="leStepX">
               <property name="text">
                <string>1</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -220,7 +210,7 @@
                </size>
               </property>
               <property name="text">
-               <string>По Y:</string>
+               <string>Y:</string>
               </property>
              </widget>
             </item>
@@ -228,6 +218,9 @@
              <widget class="QLineEdit" name="leStepY">
               <property name="text">
                <string>1</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -248,31 +241,47 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="btnMoveModel">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Offset</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRotateModel">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Rotate</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>                       Нормализация:</string>
+             <string>Normalize:</string>
             </property>
            </widget>
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <widget class="QLabel" name="label_5">
-              <property name="minimumSize">
-               <size>
-                <width>50</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Мин.</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QLineEdit" name="leNormMin">
               <property name="text">
                <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -280,19 +289,6 @@
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
-            <item>
-             <widget class="QLabel" name="label_6">
-              <property name="minimumSize">
-               <size>
-                <width>50</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Макс.</string>
-              </property>
-             </widget>
-            </item>
             <item>
              <widget class="QLineEdit" name="leNormMax">
               <property name="minimumSize">
@@ -304,6 +300,9 @@
               <property name="text">
                <string>300</string>
               </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
              </widget>
             </item>
            </layout>
@@ -311,14 +310,7 @@
          </layout>
         </item>
         <item>
-         <widget class="Line" name="line_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_6">
+         <widget class="Line" name="line_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -333,7 +325,21 @@
            </size>
           </property>
           <property name="text">
-           <string>Изменить масштаб</string>
+           <string>Normilaze</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
@@ -354,45 +360,25 @@
       </item>
      </layout>
     </item>
-    <item row="3" column="0" colspan="2">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Путь:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_name">
-        <property name="text">
-         <string>Имя файла</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnLoadFile">
-        <property name="text">
-         <string>Загрузить файл</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btn_show">
-        <property name="text">
-         <string>Показать модель</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="2" column="2">
+    <item row="2" column="0">
      <widget class="QtSceneDrawer" name="graphicsView">
       <property name="minimumSize">
        <size>
         <width>800</width>
         <height>700</height>
        </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_name">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Filename</string>
       </property>
      </widget>
     </item>
@@ -403,8 +389,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1112</width>
-     <height>20</height>
+     <width>1205</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

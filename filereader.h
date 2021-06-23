@@ -17,7 +17,7 @@ public:
 
     virtual Scene readScene(string path, NormalizationParameters _normalizationParameters) override;
 
-    vector<Vertex> normalizationVertex(vector<Vertex> _vertex, float min, float max);
+    vector<Vertex> normalizationVertex(vector<Vertex> _vertex, double min, double max);
 
     int getMax(vector<Vertex> _vertex, Axis ax);
     int getMin(vector<Vertex> _vertex, Axis ax);

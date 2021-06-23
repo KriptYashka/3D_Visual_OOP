@@ -24,7 +24,7 @@ FacadeOperationResult Facade::loadScene(string path, NormalizationParameters _no
     return response;
 }
 
-FacadeOperationResult Facade::offsetScene(float x, float y, float z){
+FacadeOperationResult Facade::offsetScene(double x, double y, double z){
     /* Перемещение сцены */
     FacadeOperationResult response("Empty file!",false);
     if (!filedata.isEmpty()){
@@ -36,7 +36,7 @@ FacadeOperationResult Facade::offsetScene(float x, float y, float z){
     return response;
 }
 
-FacadeOperationResult Facade::rotateScene(float x, float y, float z){
+FacadeOperationResult Facade::rotateScene(double x, double y, double z){
     /* Поворот сцены */
     FacadeOperationResult response("Пустой файл!",false);
     if (!filedata.isEmpty()){
@@ -48,7 +48,7 @@ FacadeOperationResult Facade::rotateScene(float x, float y, float z){
     return response;
 }
 
-FacadeOperationResult Facade::scaleScene(float x, float y, float z){
+FacadeOperationResult Facade::scaleScene(double x, double y, double z){
     /* Масштабирование сцены */
     FacadeOperationResult response("Пустой файл!",false);
     if (!filedata.isEmpty()){

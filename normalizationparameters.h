@@ -5,12 +5,12 @@
 class NormalizationParameters{
 public:
     NormalizationParameters();
-    NormalizationParameters(float _min, float _max, float _dxStep, float _dyStep);
+    NormalizationParameters(double normalize_min, double normalize_max, double step_x, double step_y);
 
-    float min;
-    float max;
-    float dxStep;
-    float dyStep;
+    double min;
+    double max;
+    double dxStep;
+    double dyStep;
 };
 
 #endif // NORMALIZATIONPARAMETERS_H

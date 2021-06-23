@@ -1,6 +1,6 @@
 #include "transformmatrix.h"
 
-TransformMatrix::TransformMatrix(float matr[MATRIX_ROW][MATRIX_COL]){
+TransformMatrix::TransformMatrix(double matr[MATRIX_ROW][MATRIX_COL]){
     for(int i = 0 ; i < MATRIX_ROW; ++i)
         for(int j =0 ; j < MATRIX_COL; ++j)
             _matr[i][j] = matr[i][j];
@@ -13,6 +13,7 @@ TransformMatrix::TransformMatrix(){
 }
 
 TransformMatrix TransformMatrix::operator*(TransformMatrix _transformMatrix){
+    /* Умножение двух матриц друг с другом. Перегрузка оператора умножения. */
     TransformMatrix resMatr;
 
     for (int i = 0; i < MATRIX_ROW; i++)

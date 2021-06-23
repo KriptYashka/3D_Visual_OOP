@@ -2,11 +2,11 @@
 
 TransformMatrixBuilder::TransformMatrixBuilder(){}
 
-TransformMatrix TransformMatrixBuilder::createRotationMatrix(float x, float y, float z){
+TransformMatrix TransformMatrixBuilder::createRotationMatrix(double x, double y, double z){
     /* Возвращает новую матрицу с новыми позициями точками на сцене, с учётом поворота осей */
-    float _x = x*M_PI/180.0;
-    float _y = y*M_PI/180.0;
-    float _z = z*M_PI/180.0;
+    double _x = x*M_PI/180.0;
+    double _y = y*M_PI/180.0;
+    double _z = z*M_PI/180.0;
     /*
     x, y, z, scale
     0  0  0  0 x
@@ -15,18 +15,18 @@ TransformMatrix TransformMatrixBuilder::createRotationMatrix(float x, float y, f
     0  0  0  0 scale
     */
 
-    float matrixRotX[4][4] = {{1,0,0,0},
-                                       {0,float(cos(_x)),float(-sin(_x)),0},
-                                       {0,float(sin(_x)),float(cos(_x)),0},
+    double matrixRotX[4][4] = {{1,0,0,0},
+                                       {0,double(cos(_x)),double(-sin(_x)),0},
+                                       {0,double(sin(_x)),double(cos(_x)),0},
                                        {0,0,0,1}
                                      };
-    float matrixRotY[4][4] = { {float(cos(_y)),0,float(sin(_y)),0},
+    double matrixRotY[4][4] = { {double(cos(_y)),0,double(sin(_y)),0},
                                         {0,1,0,0},
-                                        {float(-sin(_y)),0,float(cos(_y)),0},
+                                        {double(-sin(_y)),0,double(cos(_y)),0},
                                         {0,0,0,1}
                                       };
-    float matrixRotZ[4][4] = { {float(cos(_z)),float(-sin(_z)),0,0},
-                                        {float(sin(_z)),float(cos(_z)),0,0},
+    double matrixRotZ[4][4] = { {double(cos(_z)),double(-sin(_z)),0,0},
+                                        {double(sin(_z)),double(cos(_z)),0,0},
                                         {0,0,1,0},
                                         {0,0,0,1}
                                       };
@@ -37,9 +37,9 @@ TransformMatrix TransformMatrixBuilder::createRotationMatrix(float x, float y, f
     return  _trasfomrMatrixRotX * _trasfomrMatrixRotY * _trasfomrMatrixRotZ;
 }
 
-TransformMatrix TransformMatrixBuilder::createMoveMatrix(float x, float y, float z){
+TransformMatrix TransformMatrixBuilder::createMoveMatrix(double x, double y, double z){
     /* Перемещение матрицы */
-    float matrixMove[4][4] = { {1,0,0,0},
+    double matrixMove[4][4] = { {1,0,0,0},
                                         {0,1,0,0},
                                         {0,0,1,0},
                                         {x,y,z,1}
@@ -48,9 +48,9 @@ TransformMatrix TransformMatrixBuilder::createMoveMatrix(float x, float y, float
     return _transfomrMatrixMove;
 }
 
-TransformMatrix TransformMatrixBuilder::createScaleMatrix(float x, float y, float z){
+TransformMatrix TransformMatrixBuilder::createScaleMatrix(double x, double y, double z){
     /* Масштабирование */
-    float matrixScale[4][4] = { {x,0,0,0},
+    double matrixScale[4][4] = { {x,0,0,0},
                                          {0,y,0,0},
                                          {0,0,z,0},
                                          {0,0,0,1}

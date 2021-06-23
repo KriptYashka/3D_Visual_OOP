@@ -27,9 +27,17 @@ private slots:
     void rotateModel();
     void offsetModel();
     void modelToScale();
-    void allButtonActivate();
+    void allButtonActivate(bool flag);
     void on_btn_show_clicked();
     bool serValidNormalizationParameters();
+
+    void on_btnLoadFile_clicked();
+
+    void on_btnMoveModel_clicked();
+
+    void on_btnRotateModel_clicked();
+
+    void on_btnScale_clicked();
 
 private:
     Ui::MainWindow *ui;

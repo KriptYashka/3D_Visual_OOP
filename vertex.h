@@ -7,10 +7,10 @@
 
 class Vertex : public SceneObject{
 private:
-    Point _position;
+    Point point;
 public:
     Vertex();
-    Vertex(double _x, double _y, double _z);
+    Vertex(double x, double y, double z);
     Point getPosition();
     void transform(TransformMatrix _transformMatrix) override;
 };

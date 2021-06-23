@@ -2,7 +2,7 @@
 
 NormalizationParameters::NormalizationParameters(){}
 
-NormalizationParameters::NormalizationParameters(float _min, float _max, float _dxStep, float _dyStep){
+NormalizationParameters::NormalizationParameters(double _min, double _max, double _dxStep, double _dyStep){
     min = _min;
     max = _max;
     dxStep = _dxStep;
