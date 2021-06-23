@@ -24,7 +24,7 @@ TransformMatrix TransformMatrix::operator*(TransformMatrix _transformMatrix){
 }
 
 Point TransformMatrix::TransformPoint(Point point){
-    /* Требуется смещение */
+    /* Смещение точки относительно значениям матрицы */
     Point newPoint;
     double offset = 0;
 

@@ -17,7 +17,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     basefilereader.cpp \
-    edge.cpp \
     facade.cpp \
     facadeoperationresult.cpp \
     figure.cpp \

@@ -25,6 +25,10 @@ void Scene::transformFigures(TransformMatrix _transformmatrix){
         _figures[i].transform(_transformmatrix);
 }
 
+bool Scene::isEmpty(){
+    return _figures.size() == 0;
+}
+
 void Scene::normalizationVertex(vector<Vertex> _vertex, NormalizationParameters params){
     /* Процесс нормализации */
     /* Использовать только на сцене для показа */

@@ -12,18 +12,18 @@
 
 class Facade{
 private:
-    BaseFileReader* _fileReader;
-    SceneDrawerBase* _scenDrawer;
+    BaseFileReader* fileReader;
+    SceneDrawerBase* sceneDrawer;
     NormalizationParameters _normPar;
 
 public:
-    Scene _scene;
-    Scene _scenedata;
+    Scene picture;
+    Scene filedata;
     Facade(QWidget*);
 
     FacadeOperationResult drawScene();
     FacadeOperationResult loadScene(string path, NormalizationParameters _normalizationParameters);
-    FacadeOperationResult moveScene(float x, float y, float z);
+    FacadeOperationResult offsetScene(float x, float y, float z);
     FacadeOperationResult rotateScene(float x, float y, float z);
     FacadeOperationResult scaleScene(float x, float y, float z);
     FacadeOperationResult normalizeScene(NormalizationParameters _normalizationParameters);

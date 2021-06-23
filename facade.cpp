@@ -2,66 +2,71 @@
 using namespace std;
 
 Facade::Facade(QWidget* q){
-    _fileReader = new FileReader();
-    _scenDrawer = new QtSceneDrawer(q);
+    fileReader = new FileReader();
+    sceneDrawer = new QtSceneDrawer(q);
 }
 
 FacadeOperationResult Facade::drawScene(){
-    _scenDrawer->drawScene(_scene);
+    sceneDrawer->drawScene(picture);
     return FacadeOperationResult();
 }
 
 FacadeOperationResult Facade::loadScene(string path, NormalizationParameters _normalizationParameters){
-    FacadeOperationResult _operationRes("File did not open!", false);
-    _scene.clear();
-    _scene += _fileReader->readScene(path, _normalizationParameters);
-    _scenedata = _scene;
-    if (_scene.getFigures().size() != 0){
-        _operationRes.setMessage("File is successful open!");
-        _operationRes.setIsSuccess(true);
+    /* Загрузка сцены */
+    FacadeOperationResult response("Нельзя открыть файл!", false);
+    picture.clear();
+    picture = fileReader->readScene(path, _normalizationParameters);
+    filedata = picture;
+    if (!picture.isEmpty()){
+        response.setMessage("Файл успешно загружен!");
+        response.setIsSuccess(true);
     }
-    return _operationRes;
+    return response;
 }
 
-FacadeOperationResult Facade::moveScene(float x, float y, float z){
-    FacadeOperationResult _operationRes("Empty file!",false);
-    if (_scenedata.getFigures().size() != 0){
-        _scenedata.transformFigures(TransformMatrixBuilder::createMoveMatrix(x,y,z));
-        _scene = _scenedata;
-        _operationRes.setIsSuccess(true);
-        _operationRes.setMessage("File successful moving!");
+FacadeOperationResult Facade::offsetScene(float x, float y, float z){
+    /* Перемещение сцены */
+    FacadeOperationResult response("Empty file!",false);
+    if (!filedata.isEmpty()){
+        filedata.transformFigures(TransformMatrixBuilder::createMoveMatrix(x,y,z));
+        picture = filedata;
+        response.setIsSuccess(true);
+        response.setMessage("Сцена передвинута!");
     }
-    return _operationRes;
+    return response;
 }
 
 FacadeOperationResult Facade::rotateScene(float x, float y, float z){
-    FacadeOperationResult _operationRes("Empty file!",false);
-    if(_scenedata.getFigures().size() != 0){
-        _scenedata.transformFigures(TransformMatrixBuilder::createRotationMatrix(x,y,z));
-        _scene = _scenedata;
-        _operationRes.setIsSuccess(true);
-        _operationRes.setMessage("File successful rotate!");
+    /* Поворот сцены */
+    FacadeOperationResult response("Пустой файл!",false);
+    if (!filedata.isEmpty()){
+        filedata.transformFigures(TransformMatrixBuilder::createRotationMatrix(x,y,z));
+        picture = filedata;
+        response.setIsSuccess(true);
+        response.setMessage("Сцена повернута!");
     }
-    return _operationRes;
+    return response;
 }
 
 FacadeOperationResult Facade::scaleScene(float x, float y, float z){
-    FacadeOperationResult _operationRes("Empty file!",false);
-    if (_scenedata.getFigures().size() != 0){
-        _scenedata.transformFigures(TransformMatrixBuilder::createScaleMatrix(x,y,z));
-        _scene = _scenedata;
-        _operationRes.setIsSuccess(true);
-        _operationRes.setMessage("File successful scale!");
+    /* Масштабирование сцены */
+    FacadeOperationResult response("Пустой файл!",false);
+    if (!filedata.isEmpty()){
+        filedata.transformFigures(TransformMatrixBuilder::createScaleMatrix(x,y,z));
+        picture = filedata;
+        response.setIsSuccess(true);
+        response.setMessage("Сцена масштабирована!");
     }
-    return _operationRes;
+    return response;
 }
 
 FacadeOperationResult Facade::normalizeScene(NormalizationParameters params){
-    FacadeOperationResult _operationRes("Empty file!",false);
-    if (_scenedata.getFigures().size() != 0){
-        _scene.normalizationVertex(_scenedata.getFigures().at(0).getVertices(), params);
-        _operationRes.setIsSuccess(true);
-        _operationRes.setMessage("File successful scale!");
+    /* Нормализация сцены */
+    FacadeOperationResult response("Пустой файл!",false);
+    if (!filedata.isEmpty()){
+        picture.normalizationVertex(filedata.getFigures().at(0).getVertices(), params);
+        response.setIsSuccess(true);
+        response.setMessage("Сцена нормализованна!");
     }
-    return _operationRes;
+    return response;
 }

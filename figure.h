@@ -10,8 +10,8 @@ using namespace std;
 
 class Figure : public SceneObject{
 private:
-    vector<Vertex> _vertices;
-    vector<Edge> _edges;
+    vector<Vertex> vertices;
+    vector<Edge> edges;
 public:
     Figure();
     Figure(vector<Vertex> _vert);

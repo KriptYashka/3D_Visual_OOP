@@ -25,11 +25,11 @@ public:
 private slots:
     void loadFile();
     void rotateModel();
-    void movingModel();
+    void offsetModel();
     void modelToScale();
     void allButtonActivate();
     void on_btn_show_clicked();
-    bool setNormParameters();
+    bool serValidNormalizationParameters();
 
 private:
     Ui::MainWindow *ui;

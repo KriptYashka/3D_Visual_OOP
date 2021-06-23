@@ -14,13 +14,13 @@ Scene FileReader::readScene(string path, NormalizationParameters _normalizationP
     char* cStr= new char[255];
     char *currenValue = new char[255];
 
-    for (int i = 0; getline(file, str); i += _normalizationParameters.dyStep){
-        strcpy(cStr,str.c_str());
+    for (int i = 1; getline(file, str); i += _normalizationParameters.dyStep){
+        strcpy(cStr, str.c_str());
         currenValue = strtok (cStr,",");
-        for(int j = 0; currenValue != NULL; j += _normalizationParameters.dxStep){
+        for(int j = 1; currenValue != NULL; j += _normalizationParameters.dxStep){
             tmpZ = atoi(currenValue);
-            tmpX = j + 1;
-            tmpY = i + 1;
+            tmpX = j;
+            tmpY = i;
             Vertex tmp(tmpX, tmpY, tmpZ);  //создаем еще одну вершину из считанных координат
             _vertex.push_back(tmp);        //помещаем в наш массив вершнин
             currenValue = strtok (NULL,",");

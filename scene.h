@@ -27,6 +27,7 @@ public:
     Scene();
     Scene(vector<Figure> _figures);
     vector<Figure> getFigures();
+    bool isEmpty();
     Scene& operator += (Scene _scene);
     void transformFigures(TransformMatrix _transformmatrix);
     void clear();
