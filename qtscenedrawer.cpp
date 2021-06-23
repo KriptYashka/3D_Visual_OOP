@@ -5,17 +5,15 @@ QtSceneDrawer::QtSceneDrawer(QWidget* mainWindow):QGraphicsView(mainWindow){
 }
 
 void QtSceneDrawer::drawScene(Scene _scene){
-//    QPen pen(Qt::black);
-//    QScene->addLine(0,0,100,100, pen);
     QScene->clear();
     drawLine(_scene);
     drawVertices(_scene);
-//    QScene->update();
     setScene(QScene);
 }
 
 void QtSceneDrawer::drawLine(Scene _scene){
-    QPen pen(Qt::black);
+    /* Отрисовка всех линий */
+    QPen pen(Qt::blue);
     pen.setWidth(2);
     int countOfPoints = _scene.getFigures()[0].getVertices().size();
     int k = 0;
@@ -34,14 +32,26 @@ void QtSceneDrawer::drawLine(Scene _scene){
     }
 }
 
+QColor getMyColor(int param){
+    /* Регулирует цвет взависимости от дальности точки */
+    int minGreen = 100;
+    int currentGreen = max(0, min(255 - minGreen + param * 2, 255));
+    QColor color = QColor(100, currentGreen, 220);
+    return color;
+}
+
 void QtSceneDrawer::drawVertices(Scene _scene){
+    /* Отрисовка всех точек */
     QPen pen(Qt::black);
-    QBrush br(Qt::green);
+    QColor color = QColor(100, 100, 220);
+    QBrush br(color);
     pen.setWidth(2);
-    int sizeOfPoint = 5;
+    int sizeOfPoint = 8;
     int countOfPoints = _scene.getFigures()[0].getVertices().size();
     for (int i = 0; i < countOfPoints; i++){
         Point curPoint = _scene.getFigures()[0].getVertices()[i].getPosition();
+        color = getMyColor(curPoint.z);
+        br.setColor(color);
         QScene->addEllipse(curPoint.x - sizeOfPoint/2.0, curPoint.y - sizeOfPoint/2.0, sizeOfPoint, sizeOfPoint, pen, br);
     }
 }
